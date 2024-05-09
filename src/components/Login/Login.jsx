@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
 import { FcGoogle } from "react-icons/fc";
-import { ImGithub } from "react-icons/im";
 import loginImg from '../../assets/login.svg'
 
 const Login = () => {
@@ -33,7 +32,6 @@ const Login = () => {
                     </form>
                     <div className="flex flex-col justify-center items-center gap-5 mb-10">
                         <button className="border w-1/2 inline-flex gap-5 rounded-lg p-4 bg-blue-100 font-bold"><FcGoogle className="text-2xl ml-10"/>Login with Google</button>
-                        <button className="border w-1/2 inline-flex gap-5 rounded-lg p-4 bg-gray-200 font-bold"><ImGithub className="text-2xl ml-10"/>Login with Github</button>
                     </div>
                 </div>
                     <div className='w-full lg:w-2/5'>
