@@ -1,14 +1,66 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
 
+    const {createUser, setUser} = useContext(AuthContext)
     const [showPassword, setShowPassword] = useState(false)
+    const navigate = useNavigate()
+
+    const handleRegister = async (e) => {
+        e.preventDefault()
+        const form = new FormData(e.currentTarget)
+        const name = form.get('name')
+        const photo = form.get('photo')
+        const email = form.get('email')
+        const password = form.get('password')
+
+        //password error
+        if(password.length<6){
+            toast.error('Password should be atleast 6 characters')
+            return
+        }else if(!/[A-Z]/.test(password)){
+            toast.error('Password should have atleast one Uppercase')
+            return
+        }else if(!/[a-z]/.test(password)){
+            toast.error('Password should have atleast one Lowercase')
+            return
+        }
+
+        try {
+            const result = await createUser(email, password);
+            const user = result.user;
+            console.log(user);
+            await updateProfile(user, {
+                displayName: name,
+                photoURL: photo
+            });
+            
+            setUser({
+                ...user,
+                displayName: name,
+                photoURL: photo
+            });
+            
+            toast.success('User created successfully');
+            setTimeout(() => {
+                navigate('/');
+            }, 1500);
+        } catch (error) {
+            console.error(error);
+            toast.error('Error creating user');
+        }
+    }
 
     return (
         <div className="hero min-h-screen">
+            <ToastContainer></ToastContainer>
             <div className="hero-content flex-col md:flex-row lg:flex-row">
                 <div className="w-full lg:w-1/2 mr-12">
                     <img src="https://i.ibb.co/552kDMF/Wavy-Gen-01-Single-07.jpg" alt="" />
@@ -16,7 +68,7 @@ const Register = () => {
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <div className="card-body">
                         <h1 className="text-3xl text-center font-bold text-red-500">Register <span className="text-black">Now!</span></h1>
-                        <form>
+                        <form onSubmit={handleRegister}>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
