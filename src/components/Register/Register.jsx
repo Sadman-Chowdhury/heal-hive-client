@@ -4,12 +4,15 @@ import { IoEyeOff } from "react-icons/io5";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
+import { FcGoogle } from "react-icons/fc";
 import 'react-toastify/dist/ReactToastify.css';
-import { updateProfile } from "firebase/auth";
+import { GoogleAuthProvider, updateProfile } from "firebase/auth";
+
+const googleProvider = new GoogleAuthProvider()
 
 const Register = () => {
 
-    const {createUser, setUser} = useContext(AuthContext)
+    const {createUser, setUser, googleSignIn} = useContext(AuthContext)
     const [showPassword, setShowPassword] = useState(false)
     const navigate = useNavigate()
 
@@ -47,7 +50,7 @@ const Register = () => {
                 displayName: name,
                 photoURL: photo
             });
-            
+
             toast.success('User created successfully');
             setTimeout(() => {
                 navigate('/');
@@ -56,6 +59,21 @@ const Register = () => {
             console.error(error);
             toast.error('Error creating user');
         }
+    }
+
+    const handleGoogleSignIn = () => {
+        googleSignIn(googleProvider)
+        .then(result => {
+            console.log(result.user)
+            toast.success('Login successful');
+            setTimeout(() => {
+                navigate('/');
+            }, 1000);
+        })
+        .catch(error => {
+            console.log('error', error.message)
+            toast.error('Error signing in with Google');
+        })
     }
 
     return (
@@ -100,6 +118,9 @@ const Register = () => {
                             </div>
                             <div className="form-control mt-6">
                                 <input className="btn text-red-600 bg-red-300 font-bold" type="submit" value="Register" />
+                            </div>
+                            <div className="flex flex-col justify-center items-center gap-5 mt-5">
+                                <button onClick={handleGoogleSignIn} className="border w-full inline-flex gap-5 rounded-lg p-3 bg-blue-100 font-bold"><FcGoogle className="text-2xl ml-10"/>Signup with Google</button>
                             </div>
                         </form>
                         <p className='my-4 text-center'>Already Have an Account? <Link className='text-red-600 font-bold' to="/login">Login</Link> </p>
