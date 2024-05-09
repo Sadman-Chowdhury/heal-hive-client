@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyARoTmLBT5oRUvAZEDfcZ-LWaxQlX_tjjs",
-  authDomain: "heal-hive.firebaseapp.com",
-  projectId: "heal-hive",
-  storageBucket: "heal-hive.appspot.com",
-  messagingSenderId: "700165909354",
-  appId: "1:700165909354:web:035b8c5399d3ddbd175313"
+    apiKey: import.meta.env.VITE_apiKey,
+    authDomain: import.meta.env.VITE_authDomain,
+    projectId:import.meta.env.VITE_projectId,
+    storageBucket: import.meta.env.VITE_storageBucket,
+    messagingSenderId:import.meta.env.VITE_messagingSenderId,
+    appId:import.meta.env.VITE_appId
 };
 
 // Initialize Firebase
