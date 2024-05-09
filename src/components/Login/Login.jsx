@@ -6,10 +6,13 @@ import { FcGoogle } from "react-icons/fc";
 import loginImg from '../../assets/login.svg'
 import { AuthContext } from "../../providers/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
+import { GoogleAuthProvider } from "firebase/auth";
+
+const googleProvider = new GoogleAuthProvider()
 
 const Login = () => {
 
-    const {signInUser} = useContext(AuthContext)
+    const {signInUser, googleSignIn} = useContext(AuthContext)
     const [showPassword, setShowPassword] = useState(false)
 
     const navigate = useNavigate()
@@ -30,6 +33,21 @@ const Login = () => {
         .catch(error=>{
             console.error(error)
             toast.error('There is no such user. Check email and password')
+        })
+    }
+
+    const handleGoogleSignIn = () => {
+        googleSignIn(googleProvider)
+        .then(result => {
+            console.log(result.user)
+            toast.success('Login successful');
+            setTimeout(() => {
+                navigate('/');
+            }, 1000);
+        })
+        .catch(error => {
+            console.log('error', error.message)
+            toast.error('Error signing in with Google');
         })
     }
 
@@ -57,7 +75,7 @@ const Login = () => {
                         </div>
                     </form>
                     <div className="flex flex-col justify-center items-center gap-5 mb-10">
-                        <button className="border w-1/2 inline-flex gap-5 rounded-lg p-4 bg-blue-100 font-bold"><FcGoogle className="text-2xl ml-10"/>Login with Google</button>
+                        <button onClick={handleGoogleSignIn} className="border w-1/2 inline-flex gap-5 rounded-lg p-4 bg-blue-100 font-bold"><FcGoogle className="text-2xl ml-10"/>Login with Google</button>
                     </div>
                 </div>
                     <div className='w-full lg:w-2/5'>
