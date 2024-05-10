@@ -1,7 +1,7 @@
 
 const Banner = () => {
     return (
-        <div className="carousel w-full h-[700px] mt-20 mb-20 shadow-2xl">
+        <div className="carousel w-full h-[400px] md:h-[550px] lg:h-[700px] mt-20 mb-20 shadow-2xl">
             <div id="slide1" className="carousel-item relative w-full">
                 <img src="https://i.ibb.co/ZLfDJnF/national-cancer-institute-6jpj-F-e-Dv-ZU-unsplash.jpg" className="w-full rounded-xl" />
                 <div className="absolute rounded-xl flex items-center h-full left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
