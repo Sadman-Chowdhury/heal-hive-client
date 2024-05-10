@@ -14,6 +14,7 @@ import ErrorPage from './components/ErrorPage/ErrorPage';
 import PrivateRoute from './components/routes/PrivateRoute';
 import AddService from './components/AddService/AddService';
 import AllServices from './components/AllServices/AllServices';
+import SingleService from './components/SingleService/SingleService';
 
 const router = createBrowserRouter([
   {
@@ -42,7 +43,12 @@ const router = createBrowserRouter([
         path: "/allServices",
         element: <AllServices></AllServices>,
         loader: ()=>fetch('http://localhost:3000/services')
-      }
+      },
+      {
+        path: "/singleService/:id",
+        element: <PrivateRoute><SingleService></SingleService></PrivateRoute>,
+        loader: ({params})=>fetch(`http://localhost:3000/services/${params.id}`)
+      },
     ]
   },
 ]);

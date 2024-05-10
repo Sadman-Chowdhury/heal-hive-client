@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const AllServices = () => {
     const services = useLoaderData();
@@ -29,7 +29,7 @@ const AllServices = () => {
                         </div>
                         <hr className="border-gray-300"/>
                         <div className="card-actions justify-center">
-                        <button className="btn bg-red-400 text-white">View Details</button>
+                        <Link to={`../singleService/${service._id}`}><button className="btn bg-red-400 text-white">View Details</button></Link>
                         </div>
                     </div>
                     </div>

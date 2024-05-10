@@ -29,7 +29,7 @@ const Home = () => {
                         </div>
                         <hr className="border-gray-300"/>
                         <div className="card-actions justify-center">
-                        <button className="btn bg-red-400 text-white">View Details</button>
+                        <Link to={`singleService/${service._id}`}><button className="btn bg-red-400 text-white">View Details</button></Link>
                         </div>
                     </div>
                     </div>
