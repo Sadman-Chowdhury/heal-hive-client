@@ -48,7 +48,7 @@ const SingleService = () => {
                         </div>
                         <hr className="border-gray-300"/>
                         <div className="card-actions justify-center">
-                        <Link to={`../singleService/${_id}`}><button className="btn bg-red-400 text-white">Book Now!</button></Link>
+                        <Link to={`../booking/${_id}`}><button className="btn bg-red-400 text-white">Book Now!</button></Link>
                         </div>
                     </div>
                     </div>

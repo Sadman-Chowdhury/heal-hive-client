@@ -20,7 +20,7 @@ const Navbar = () => {
 
     const navLinks = <>
         <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/allTouristSpot">Services</NavLink></li>
+        <li><NavLink to="/allServices">Services</NavLink></li>
         { user ?
         <li className="dropdown">
                 <label tabIndex={0} className="btn btn-ghost font-normal">Dashboard</label>
