@@ -13,21 +13,17 @@ const Booking = () => {
     const handleBookService = event => {
         event.preventDefault()
         const form = event.target
-        const providerEmail = providerEmail;
-        const providerName = providerName;
         const userEmail = user.email;
         const userName = user.displayName;
         const serviceId = _id;
-        const serviceName = serviceName;
-        const price = price;
-        const servideDate = form.servideDate.value;
+        const serviceDate = form.serviceDate.value;
         const instruction = form.instruction.value;
         const serviceImage = imgURL;
         const status = 'pending';
-        const newService = {providerEmail, providerName, serviceName, price, userEmail, userName, serviceId, servideDate, instruction, serviceImage, status}
-        console.log(newService)
+        const newBook = {providerEmail, providerName, serviceName, price, userEmail, userName, serviceId, serviceDate, instruction, serviceImage, status}
+        console.log(newBook)
 
-        axios.post('http://localhost:3000/services', newService, {
+        axios.post('http://localhost:3000/bookings', newBook, {
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -36,7 +32,7 @@ const Booking = () => {
             console.log(response.data);
             Swal.fire({
                 title: 'Success!',
-                text: 'New service added successfully',
+                text: 'Booked successfully',
                 icon: 'success',
                 confirmButtonText: 'Cool'
             });
