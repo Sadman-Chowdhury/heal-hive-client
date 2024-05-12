@@ -1,5 +1,6 @@
 import { Link, useLoaderData } from "react-router-dom";
 import Banner from "./Banner";
+import { Helmet } from "react-helmet";
 
 
 const Home = () => {
@@ -8,6 +9,9 @@ const Home = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Home | Heal Hive</title>
+            </Helmet>
             <Banner></Banner>
             <h1 className="text-5xl text-center font-bold mb-10"><span className="text-red-500">Popular</span> Consultations</h1>
             <div className="grid grid-cols-1 gap-10">

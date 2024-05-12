@@ -7,6 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { FcGoogle } from "react-icons/fc";
 import 'react-toastify/dist/ReactToastify.css';
 import { GoogleAuthProvider, updateProfile } from "firebase/auth";
+import { Helmet } from "react-helmet";
 
 const googleProvider = new GoogleAuthProvider()
 
@@ -78,6 +79,9 @@ const Register = () => {
 
     return (
         <div className="hero min-h-screen">
+            <Helmet>
+                <title>Register | Heal Hive</title>
+            </Helmet>
             <ToastContainer></ToastContainer>
             <div className="hero-content flex-col md:flex-row lg:flex-row">
                 <div className="w-full lg:w-1/2 mr-12">

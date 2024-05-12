@@ -1,13 +1,32 @@
+import { useState } from "react";
+import { Helmet } from "react-helmet";
 import { Link, useLoaderData } from "react-router-dom";
 
 const AllServices = () => {
     const services = useLoaderData();
+    const [searchQuery, setSearchQuery] = useState("");
+
+    const filteredServices = services.filter(service =>
+        service.serviceName && service.serviceName.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
     return (
-        <div>
+        <div className="mt-20">
+            <Helmet>
+                <title>Services | Heal Hive</title>
+            </Helmet>
             <h1 className="text-5xl text-center font-bold mb-10"><span className="text-red-500">All</span> Consultations</h1>
+            <div className="flex justify-center mb-10">
+                <input
+                    type="text"
+                    placeholder="Search..."
+                    className="border border-gray-300 px-4 py-2 rounded-md"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                />
+            </div>
             <div className="grid grid-cols-1 gap-10">
-                {services.map(service=><div key={service._id}>
+                {filteredServices.map(service=><div key={service._id}>
                     <div className="card md:card-side lg:card-side shadow-2xl bg-base-200">
                     <figure className="w-full lg:w-1/2"><img src={service.imgURL} alt="Album"/></figure>
                     <div className=" p-7 space-y-3 w-full lg:w-1/2">

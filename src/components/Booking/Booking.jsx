@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../providers/AuthProvider';
 import { useLoaderData } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const Booking = () => {
 
@@ -43,6 +44,9 @@ const Booking = () => {
     }
     return (
         <div className="border border-red-300 p-20 shadow-2xl mt-14 mb-20 rounded-2xl">
+            <Helmet>
+                <title>Book a Service | Heal Hive</title>
+            </Helmet>
         <h2 className="text-5xl text-center font-bold mb-14 text-red-500">Book <span className="text-black">Service</span></h2>
         <form onSubmit={handleBookService} className="space-y-10">
             <div className="flex flex-col md:flex-row gap-10 form-control">

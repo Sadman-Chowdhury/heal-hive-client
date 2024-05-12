@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const ManageService = () => {
     const {user} = useContext(AuthContext)
@@ -47,6 +48,9 @@ const ManageService = () => {
 
     return (
         <div className="mt-20 mb-20">
+            <Helmet>
+                <title>Manage Service | Heal Hive</title>
+            </Helmet>
             <h1 className="text-5xl font-bold text-center mb-12">Manage <span className="text-red-500">Your</span> Services</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {

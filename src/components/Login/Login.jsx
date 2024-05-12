@@ -7,6 +7,7 @@ import loginImg from '../../assets/login.svg'
 import { AuthContext } from "../../providers/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import { GoogleAuthProvider } from "firebase/auth";
+import { Helmet } from "react-helmet";
 
 const googleProvider = new GoogleAuthProvider()
 
@@ -52,7 +53,10 @@ const Login = () => {
     }
 
     return (
-        <div>
+        <div className="mb-20">
+            <Helmet>
+                <title>Login | Heal Hive</title>
+            </Helmet>
             <ToastContainer></ToastContainer>
             <div>
             <h2 className="text-5xl my-10 text-center font-extrabold text-red-500">Login Now <span className="text-black">!</span></h2>

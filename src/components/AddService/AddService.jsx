@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const AddService = () => {
 
@@ -42,6 +43,9 @@ const AddService = () => {
 
     return (
         <div className="border border-red-300 p-20 shadow-2xl mt-14 mb-20 rounded-2xl">
+            <Helmet>
+                <title>Add Service | Heal Hive</title>
+            </Helmet>
         <h2 className="text-5xl text-center font-bold mb-14 text-red-500">Add <span className="text-black">Service</span></h2>
         <form onSubmit={handleAddService} className="space-y-10">
             <div className="flex flex-col md:flex-row gap-10 form-control">

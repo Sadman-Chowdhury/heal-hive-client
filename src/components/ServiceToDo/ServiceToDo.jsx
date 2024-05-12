@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useLoaderData } from "react-router-dom";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 
 const ServiceToDo = () => {
@@ -31,6 +32,9 @@ const ServiceToDo = () => {
 
     return (
         <div className="mt-20">
+            <Helmet>
+                <title>Service-To-Do | Heal Hive</title>
+            </Helmet>
         <h1 className="text-5xl text-center font-bold mb-10"><span className="text-red-500">Service</span> To Do</h1>
         {filteredBookings.length === 0 ? <h1 className="text-4xl font-bold text-center">You no services to do!</h1> : 
         <div className="grid grid-cols-1 gap-10">
