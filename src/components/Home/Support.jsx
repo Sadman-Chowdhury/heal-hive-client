@@ -51,7 +51,7 @@ const Support = () => {
                         <div className="collapse collapse-arrow">
                         <input type="radio" name="my-accordion-2" defaultChecked /> 
                         <div className="collapse-title text-xl font-medium">
-                            How can I book a consultaion?
+                            How can I book a consultation?
                         </div>
                         <div className="collapse-content"> 
                             <p>Login first. Then Go to "Service" page and click on the details of your required consultaion. You will find a book now button in the details page. Click it and fill out the form.</p>

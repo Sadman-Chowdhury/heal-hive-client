@@ -24,7 +24,7 @@ const Home = () => {
                 <title>Home | Heal Hive</title>
             </Helmet>
             <h1 className="text-6xl font-bold text-center mb-5"><span className="text-red-500">Heal</span> Hive</h1>
-            <p className="text-3xl font-bold text-center">"Your journey to wellness starts here."</p>
+            <p className="text-3xl font-bold text-center">"Your journey to wellness starts here"</p>
             <Banner></Banner>
             <h1 className="text-5xl text-center font-bold mb-10"><span className="text-red-500">Popular</span> Consultations</h1>
             <div className="grid grid-cols-1 gap-10">
