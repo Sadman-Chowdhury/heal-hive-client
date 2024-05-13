@@ -24,7 +24,7 @@ const Booking = () => {
         const newBook = {providerEmail, providerName, serviceName, price, userEmail, userName, serviceId, serviceDate, instruction, serviceImage, status}
         console.log(newBook)
 
-        axios.post('http://localhost:3000/bookings', newBook, {
+        axios.post('https://heal-hive-server.vercel.app/bookings', newBook, {
             headers: {
                 'Content-Type': 'application/json'
             }

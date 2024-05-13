@@ -19,7 +19,7 @@ const UpdateService = () => {
         const updatedService = {serviceName, price, location, serviceArea, description, imgURL}
         console.log(updatedService)
 
-        axios.put(`http://localhost:3000/services/${_id}`, updatedService, {
+        axios.put(`https://heal-hive-server.vercel.app/services/${_id}`, updatedService, {
             headers: {
                 'Content-Type': 'application/json'
             }

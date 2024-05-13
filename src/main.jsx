@@ -31,7 +31,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: ()=>fetch('http://localhost:3000/services')
+        loader: ()=>fetch('https://heal-hive-server.vercel.app/services')
       },
       {
         path: "/login",
@@ -48,37 +48,37 @@ const router = createBrowserRouter([
       {
         path: "/allServices",
         element: <AllServices></AllServices>,
-        loader: ()=>fetch('http://localhost:3000/services')
+        loader: ()=>fetch('https://heal-hive-server.vercel.app/services')
       },
       {
         path: "/singleService/:id",
         element: <PrivateRoute><SingleService></SingleService></PrivateRoute>,
-        loader: ({params})=>fetch(`http://localhost:3000/services/${params.id}`)
+        loader: ({params})=>fetch(`https://heal-hive-server.vercel.app/services/${params.id}`)
       },
       {
         path: "/booking/:id",
         element: <PrivateRoute><Booking></Booking></PrivateRoute>,
-        loader: ({params})=>fetch(`http://localhost:3000/services/${params.id}`)
+        loader: ({params})=>fetch(`https://heal-hive-server.vercel.app/services/${params.id}`)
       },
       {
         path: "/manageService",
         element: <PrivateRoute><ManageService></ManageService></PrivateRoute>,
-        loader: ()=>fetch('http://localhost:3000/services')
+        loader: ()=>fetch('https://heal-hive-server.vercel.app/services')
       },
       {
         path: "/updateService/:id",
         element: <PrivateRoute><UpdateService></UpdateService></PrivateRoute>,
-        loader: ({params})=>fetch(`http://localhost:3000/services/${params.id}`)
+        loader: ({params})=>fetch(`https://heal-hive-server.vercel.app/services/${params.id}`)
       },
       {
         path: "/bookedService",
         element: <PrivateRoute><BookedService></BookedService></PrivateRoute>,
-        loader: ()=>fetch('http://localhost:3000/bookings')
+        loader: ()=>fetch('https://heal-hive-server.vercel.app/bookings')
       },
       {
         path: "/serviceToDo",
         element: <PrivateRoute><ServiceToDo></ServiceToDo></PrivateRoute>,
-        loader: ()=>fetch('http://localhost:3000/bookings')
+        loader: ()=>fetch('https://heal-hive-server.vercel.app/bookings')
       }
     ]
   },

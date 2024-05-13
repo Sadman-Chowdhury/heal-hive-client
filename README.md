@@ -1,7 +1,9 @@
 # React + Vite
 
 Website name: Heal Hive
-Live site URL:
+
+Live site URL: https://heal-hive.web.app
+
 Category: Consultation Services by Doctors
 
 Features:

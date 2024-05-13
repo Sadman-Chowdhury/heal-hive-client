@@ -22,7 +22,7 @@ const AddService = () => {
         const newService = {providerEmail, providerName, providerImage, serviceName, price, serviceArea, description, imgURL}
         console.log(newService)
 
-        axios.post('http://localhost:3000/services', newService, {
+        axios.post('https://heal-hive-server.vercel.app/services', newService, {
             headers: {
                 'Content-Type': 'application/json'
             }

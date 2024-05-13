@@ -30,7 +30,7 @@ const ManageService = () => {
             },
           }).then((result) => {
             if (result.isConfirmed) {
-              fetch(`http://localhost:3000/services/${_id}`, {
+              fetch(`https://heal-hive-server.vercel.app/services/${_id}`, {
                     method: 'DELETE'
                     })
                     .then(res=>res.json)

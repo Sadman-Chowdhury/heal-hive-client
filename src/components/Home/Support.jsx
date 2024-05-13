@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 const Support = () => {
     return (
@@ -9,7 +9,7 @@ const Support = () => {
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <li>
                             <h3 className="text-xl font-semibold text-red-500 mb-2">Contact Us</h3>
-                            <p className="text-gray-800">For general inquiries or assistance, you can contact our support team via email at <a className="text-blue-500" href="">support@healhice.com</a> or by filling out the contact form on our website.</p>
+                            <p className="text-gray-800">For general inquiries or assistance, you can contact our support team via email at <a className="text-blue-500" href="">support@healhive.com</a> or by filling out the contact form on our website.</p>
                         </li>
                         <li>
                             <h3 className="text-xl font-semibold text-red-500 mb-2">FAQs</h3>

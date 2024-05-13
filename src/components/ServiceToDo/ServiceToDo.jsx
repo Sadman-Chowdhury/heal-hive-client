@@ -15,7 +15,7 @@ const ServiceToDo = () => {
         const newStatus = event.target.value;
 
         try {
-            await axios.put(`http://localhost:3000/bookings/${bookingId}`, { status: newStatus });
+            await axios.put(`https://heal-hive-server.vercel.app/bookings/${bookingId}`, { status: newStatus });
 
             const updatedBookings = filteredBookings.map(booking => {
                 if (booking._id === bookingId) {
