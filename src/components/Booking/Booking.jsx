@@ -108,9 +108,9 @@ const Booking = () => {
             <div className="flex flex-col md:flex-row gap-10">
                 <div className="form-control w-full">
                 <label className="label">
-                        <span className="label-text font-bold">Need wheelchair? (yes/no)</span>
+                        <span className="label-text font-bold">Special instruction</span>
                     </label>
-                <input type="text" placeholder="yes/no" name="instruction" className="input input-bordered w-full" required/>
+                <input type="area" placeholder="Instruction" name="instruction" className="input input-bordered w-full" required/>
                 </div>
                 <div className="form-control w-full">
                 <label className="label">
